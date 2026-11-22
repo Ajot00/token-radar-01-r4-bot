@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token Radar | Allocation threshold board</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="mast">
+      <div class="mark"><span class="mark-glyph">TR</span><div><b>TOKEN RADAR</b><small>ALLOCATION THRESHOLD BOARD · 04</small></div></div>
+      <div class="stamp"><span class="live-dot"></span>SEALED SNAPSHOT <b id="asof"></b></div>
+    </header>
+    <section class="cover">
+      <div class="cover-copy"><span class="eyebrow">THE VERDICT THAT DECIDES</span><h1>Value is a range.<br><em>Costs still need a threshold.</em></h1><p id="thesis"></p></div>
+      <div class="hero-note"><span>MODEL THESIS</span><p>One dated-comp power law sets the base. Bounded growth and maturity adjust it. The low band then asks what share of supply repays a farm plan.</p><small id="fitline"></small></div>
+    </section>
+    <section class="scoreline" aria-label="Board summary">
+      <div><b>198</b><span>ranked rows</span></div><div><b>40</b><span>watchlist</span></div><div><b>×2.49</b><span>blind band</span></div>
+      <div class="mix"><b><i class="farm-chip">59 FARM</i><i class="thin-chip">121 THIN</i><i class="skip-chip">18 SKIP</i></b><span>break-even verdicts</span></div>
+    </section>
+    <section class="controls">
+      <div class="view-tabs"><button class="selected" data-tab="pre">Pre-token <b id="pre-count"></b></button><button data-tab="live">Live tokens <b id="live-count"></b></button></div>
+      <label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Find a protocol, category or chain" aria-label="Search"></label>
+      <select id="category" aria-label="Filter by category"><option value="">Every category</option></select>
+      <span id="result-count"></span>
+    </section>
+    <section class="board" aria-label="Ranked protocol board">
+      <div class="table-wrap"><table><thead><tr>
+        <th data-sort="rank">#</th><th data-sort="name">Protocol</th><th data-sort="tvl_usd">TVL</th><th data-sort="change_7d">7d</th><th data-sort="age_days">Age</th><th data-sort="implied_value_usd">Implied</th><th data-sort="implied_low_usd">Band · low / high</th><th data-sort="total_farm_cost_usd">Plan cost</th><th data-sort="breakeven_share">Break-even share</th><th data-sort="verdict">Call</th>
+      </tr></thead><tbody id="rows"></tbody></table></div>
+      <div class="table-foot"><span>Select a row for the model path and eight-step plan.</span><span>Click any heading to sort</span></div>
+    </section>
+    <section class="below-grid">
+      <article class="panel evidence"><span class="eyebrow">MODEL CHECK · LOCKED FIT</span><h2>Power law, tested against alternatives</h2><p>Fit on 95 traded protocols with listing dates: log₁₀(mcap) = a + b × log₁₀(TVL). The other 33 traded records lack a date, so their age and verifiable track record cannot be checked.</p>
+        <div class="blind-stats"><div><b>×2.49</b><small>five-seed median error</small></div><div><b>×2.18–×3.07</b><small>seed range</small></div><div><b>×3.08</b><small>time split</small></div><div><b>0.459 ± 0.101</b><small>bootstrap slope</small></div></div><div id="blind-detail" class="subnote"></div>
+        <h3>Model search ledger</h3><div class="table-wrap compact"><table><thead><tr><th>Variant</th><th>Split-half median</th><th>Time split</th><th>R²</th><th>Decision</th></tr></thead><tbody id="search-results"></tbody></table></div>
+      </article>
+      <article class="panel verdict-note"><span class="eyebrow">DECISION RULE</span><h2>Allocation threshold, in the open</h2><div class="threshold"><span class="farm-chip">FARM</span><b>≤ 0.002%</b><span class="thin-chip">THIN</span><b>≤ 0.008%</b><span class="skip-chip">SKIP</span><b>above</b></div><p>You break even if your eventual allocation reaches that share of supply; compare with the protocol's actual points design.</p><p class="caveat">Break-even is cost ÷ low-end implied value. This is a screening call, not a token launch forecast or a claim about points eligibility.</p></article>
+    </section>
+    <section class="below-grid">
+      <article class="panel digest"><span class="eyebrow">UNIVERSE MAP</span><h2>Category digest</h2><div class="table-wrap compact"><table><thead><tr><th>Category</th><th>Rows</th><th>Median TVL</th><th>Median implied</th><th>Leading row</th></tr></thead><tbody id="digest"></tbody></table></div></article>
+      <article class="panel movers"><span class="eyebrow">SNAPSHOT MOMENTUM</span><h2>Largest weekly moves</h2><div id="movers-grid"></div></article>
+    </section>
+    <section class="panel method"><span class="eyebrow">METHOD & LIMITS</span><h2>How to read the board</h2><ul id="method-list"></ul><div class="gas-area"><h3>Planning gas by reported chain</h3><div id="gas-grid"></div></div></section>
+    <footer>Research view · all values derive from the sealed snapshot · not a token or return promise</footer>
+  </main>
+  <div id="dialog-host"></div>
+  <script src="../data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
